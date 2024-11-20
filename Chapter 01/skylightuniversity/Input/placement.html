@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement</title>
+    <link type="text/css" rel="stylesheet" href="externalstylesheet/homestylesheet.css">
+    <script type="text/javascript" src="js/RGraph.common.core.js"></script>
+    <script type="text/javascript" src="js/RGraph.bar.js"></script>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>PLACEMENTS....</h1>
+    <p>We conduct the placement program within our institutes to provide jobs to students who are in the stage of
+        completing the programme in the current academic year.In this programme , a lot of companies visit our
+        university to select students.</p>
+    <h3>Companies visited last year:</h3>
+    <ul>
+        <li>360 Network inc.</li>
+        <li>724 solutions inc.</li>
+        <li>advantech inc.</li>
+        <li>Anchor Ltd.</li>
+    </ul>
+    <br>
+    <br>
+    <h3>The following bar-graph depiets the number of student placed in the companies over the last six years.</h3>
+
+    <canvas id="placement" width="800" height="250" style="border: 1px solid black;"></canvas>
+
+    <script>
+        var bar = new RGraph.Bar('placement', [18, 36, 54, 72, 90]);
+        bar.Set('chart.colors', ["blue"]);
+        bar.Set('chart.title', ["placement data"]);
+        bar.Set('chart.labels', ["2007", "2008", "2009", "2010", "2011", "2012"]);
+        bar.Draw();
+    </script>
+
+</body>
+
+</html>

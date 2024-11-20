@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+
+        form {
+            border: 2px solid black;
+            width: 50%;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        td {
+            border: 1px solid black;
+            border-radius: 4px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(16, 63, 107);
+        }
+
+        button {
+            font-size: xx-large;
+        }
+
+        p {
+            font-weight: 400;
+            color: red;
+        }
+    </style>
+    <script type="text/javascript" src="js/RGraph.common.core.js"></script>
+    <script type="text/javascript" src="js/RGraph.bar.js"></script>
+    <script>
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var year = date.getFullYear();
+        var output = (month + "/" + day + "/" + year);
+        function compareDate() {
+            bookdate = Date.parse(document.form1.bookingdate.value);
+            currentdate = Date.parse(output);
+            if (bookdate < currentdate) {
+                alert("you cannot select a date less than the current date");
+            }
+        }
+        function checknum() {
+            x = event.charcode;
+            if ((x >= 65 && x <= 90) || (x >= 97 && x <= 122)) {
+                alert("enter numeric value");
+                document.form1.num.value = '';
+            }
+        }
+        function total() {
+            if (document.form1.num.value > 20) {
+                alert("you cannot book more than 20 tickets at a time");
+
+            }
+            else
+                document.form1.totalprice.value = (document.form1.price.value) * (document.form1.num.value);
+        }
+        function check() {
+            if (document.form1.RB[0].checked == true) {
+                document.form1.price.value = 100;
+            }
+            else if (document.form1.RB[1].checked == true) {
+                document.form1.price.value = 140;
+            }
+            else if (document.form1.RB[2].checked == true) {
+                document.form1.price.value = 200;
+            }
+        }
+        function sub() {
+            if ((document.form1.username.value != '') && (document.form1.num.value != '') && (Date.parse(document.form1.bookingdate.value) > Date.parse(output) && (document.form1.sel.value != 0) && (document.form1.timing.value != 7))) {
+                alert("your tickets have been booked");
+            }
+            // alert("user name :" +document.form1.username.value);
+            // alert("no of tickets" +document.form1.num.value);
+            // alert("date of booking :" +document.form1.bookingdate.value);
+            // alert("movie name :" +document.form1.sel.value);
+            // alert("timing is :" +document.form1.timing.value);
+        }
+        function validate() {
+            if ((document.form1.sel.value == 0) || (document.form1.timing.value == 7) || (date.parse(document.form1.bookingdate.value) < date.parse(output))) {
+                alert("please select the date,movie name,and movie timing.");
+            } else
+                return true
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form name="form1" onsubmit="return validate();">
+        <table>
+            <tr>
+                <td>Enter Your Name</td>
+                <td><input type="text" name="username" placeholder="Enter Your Name" required></td>
+            </tr>
+            <tr>
+                <td>Date of Booking</td>
+                <td><input type="date" name="bookingdate" onchange="compareDate();" id="bookingdate" required></td>
+            </tr>
+            <tr>
+                <td>Movie</td>
+                <td><select id="sel">
+                        <optgroup label="Drama">
+                            <option value="1">Nightmare</option>
+                            <option value="2">Along Polly</option>
+                        </optgroup>
+                        <optgroup label="Thriller">
+                            <option value="3">source code</option>
+                            <option value="4">If Only</option>
+                        </optgroup>
+                        <optgroup label="Romantic">
+                            <option value="5">A walk to remember</option>
+                            <option value="6">Angel</option>
+                        </optgroup>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Show Timings</td>
+                <td><select id="timing">
+                        <option value="7">select time</option>
+                        <option value="8">10:30am</option>
+                        <option value="9">5:30pm</option>
+                        <option value="10">12:30pm</option>
+                    </select>
+            </tr>
+            <tr>
+                <td>select class</td>
+                <td>
+                    <input type="radio" name="RB" id="RB" required onclick="check();">platinum
+                    <input type="radio" name="RB" id="RB" required onclick="check();">Gold
+                    <input type="radio" name="RB" id="RB" required onclick="check();">Exclusive
+                </td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td><input type="text" name="price" onclick="check();"></td>
+            </tr>
+            <tr>
+                <td>Number of Tickets</td>
+                <td><input type="text" name="num" placeholder="Enter Tickets" required onchange="total();"
+                        onkeypress="checknum();"></td>
+            </tr>
+            <tr>
+                <td>Total price</td>
+                <td><input type="text" name="totalprice"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="submit" onclick="sub();"></td>
+                <td><input type="reset"></td>
+            </tr>
+        </table>
+    </form>
+    <h2>Alert & Updates</h2>
+    <div class="auto-style">
+        <p>New payment options has been intorduced for ticket bookings.</p>
+        <p>mobile bookings is now resumed W.e.f. 05-april-2012.</p>
+        <p>ID proof is required for getting student concession on tickets.</p>
+        <p>Ticket Bookings on mobile: Now book your movie ticket-anywhere anytime through your phone </p>
+        <p>your are Advised not to carry inflammable dangerous explosive artiles as part of their luggage and also to
+            desist from smoking in the movie halls.please update your mobile numner in our profile to receive SMS alerts
+            for your ticket booking </p>
+        <p>Never purchase e-ticket from unauthorized agents or from persons</p>
+        <p>No refund will be granted on cancellation of tickets.</p>
+    </div>
+    <canvas id="movieratings" width="900" height="250" style="border: 1px solid black;"></canvas>
+
+</body>
+<script>
+    var bar = new RGraph.Bar('movieratings', [4, 2.5, 2.5, 3, 4, 3.5]);
+    bar.Set('chart.colors', ["blue"]);
+    bar.Set('chart.title', ["review"]);
+    bar.Set('chart.labels', ["Source Code", "nightmare", "If Only", "Along Polly Came", "Angel", "A Walk To Remember"]);
+    bar.Draw();
+</script>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online Registration</title>
+    <link type="text/css" rel="stylesheet" href="externalstylesheet/homestylesheet.css">
+</head>
+
+<body>
+    <h2><i>Register Online</i></h2>
+    <form action="registerme.html" method="get" autocomplete="on">
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" id="fname" name="fname" placeholder="enter first name" required></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" id="lanem" name="lname" placeholder="enter last name" required></td>
+            </tr>
+            <tr>
+                <td>Email Id</td>
+                <td><input type="email" id="mail" name="mail" placeholder="enter your email address" required></td>
+            </tr>
+            <tr>
+                <td>Roll no.</td>
+                <td><input type="number" id="roll" name="roll" placeholder="enter your roll number" required></td>
+            </tr>
+            <tr>
+                <td>Training program</td>
+                <td>
+                    <select>
+                        <optgroup label="select training">
+                            <option value="Area studies">Area studies</option>
+                            <option value="Art education">Art education</option>
+                            <option value="Biological Technology">Biological Technology</option>
+                            <option value="botany">botany</option>
+                            <option value="cell Biology">cell Biology</option>
+                            <option value="Communication">communication</option>
+                            <option value="Emglisn Communication">English Communication</option>
+                            <option value="Nursing Education">Nursing Education</option>
+                            <option value="Nutritional science">Nutritional science</script>
+                            </option>
+                            <option value="Taxation">Taxation</option>
+                            <option value="toxicology">toxicology</option>
+                        </optgroup>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+
+                <td>contact no.</td>
+                <td><input type="tel" name="contact" id="contact" placeholder="xx-xxx-xxx-xx"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="submit" onclick="confirmation();" />
+                    &nbsp;&nbsp;<input type="reset" id="reset"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+    function confirmation() {
+        alert("your details have been saved.\nplease submit the course fee at the cash counter before 13-04-2023 and collect your Id card.\nThe training will start on23-04-2023 from 10:30am to 4:30pm")
+    }
+</script>
+
+</html>
